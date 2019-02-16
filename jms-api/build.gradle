@@ -14,8 +14,6 @@ plugins{
 
 dependencies {    
     provided libs.javaee_api
-    provided project( ':jms-common')
-    provided project( ':jms-api' )
 
     //Test
     //Spock

@@ -8,4 +8,6 @@ ENV JAVA_OPTS "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=555
 
 CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
 
+COPY files/standalone.xml /opt/jboss/wildfly/standalone/configuration/
+
 COPY files/jmstest-app.ear /opt/jboss/wildfly/standalone/deployments/

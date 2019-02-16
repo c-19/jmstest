@@ -14,7 +14,9 @@ def appVersion = version
 
 dependencies {    
     provided libs.javaee_api
-    earlib project( ':jms-client' )
+    earlib project( ':jms-api' )
+    deploy project( ':jms-client' )
+    deploy project( ':jms-common' )
     deploy project( ':jms-server')
     deploy project( path: ':jms-rest', configuration: 'webArchive' )
 }

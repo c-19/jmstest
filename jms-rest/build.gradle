@@ -19,7 +19,7 @@ configurations{
 
 dependencies {    
     compileOnly libs.javaee_api
-    compileOnly project(':jms-client')
+    compileOnly project( ':jms-api')
     
     //Test
     //Spock
