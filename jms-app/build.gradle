@@ -1,0 +1,32 @@
+/*
+ * Copyright (c) 2018 - 2018, C19, all rights reserved.
+ *
+ * This software is licensed under under GPL-3.0-only or GPL-3.0-or-later, https://opensource.org/licenses/GPL-3.0
+ *
+ */
+
+//-*- coding: utf-8 -*-
+plugins{
+    id 'ear'
+    id 'java'
+}
+def appVersion = version
+
+dependencies {    
+    provided libs.javaee_api
+    earlib project( ':jms-client' )
+    deploy project( ':jms-server')
+    deploy project( path: ':jms-rest', configuration: 'webArchive' )
+}
+
+ear{
+    deploymentDescriptor{
+        applicationName = "jmstest-app"
+        displayName = "JMS Test App"
+        description = "App to perform simple JMS test"
+        webModule("jms-rest-${appVersion}.war", "/")
+    }
+    archiveName="jmstest-app.ear"
+}
+
+
