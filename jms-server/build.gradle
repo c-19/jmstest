@@ -1,8 +1,7 @@
 /*
- * Copyright (c) 2018 - 2018, C19, all rights reserved.
+ * Copyright (c) 2018 - 2019, C19, all rights reserved.
  *
  * This software is licensed under under GPL-3.0-only or GPL-3.0-or-later, https://opensource.org/licenses/GPL-3.0
- *
  */
 
 //-*- coding: utf-8 -*-
@@ -14,10 +13,11 @@ plugins{
 
 dependencies {    
     provided libs.javaee_api
-    provided project( ':jms-common')
     provided project( ':jms-api' )
 
     //Test
+    testCompile project( ':jms-common')
+
     //Spock
     testCompile libs.groovy_all
     testCompile libs.spock_core

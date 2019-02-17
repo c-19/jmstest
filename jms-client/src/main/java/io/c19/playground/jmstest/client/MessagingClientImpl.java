@@ -1,4 +1,10 @@
-package io.c19.jmstest.client;
+/*
+ * Copyright (c) 2018 - 2019, C19, all rights reserved.
+ *
+ * This software is licensed under under GPL-3.0-only or GPL-3.0-or-later, https://opensource.org/licenses/GPL-3.0
+ */
+
+package io.c19.playground.jmstest.client;
 
 import javax.annotation.Resource;
 import javax.ejb.Local;
@@ -21,6 +27,7 @@ public class MessagingClientImpl implements MessagingClient
     @Resource(mappedName="java:global/jms/myQueue")
     private Queue queue;
 
+    @Override
     public void createMessage( String message )
     {
         try

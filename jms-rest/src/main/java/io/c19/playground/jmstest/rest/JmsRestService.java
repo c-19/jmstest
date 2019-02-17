@@ -1,7 +1,13 @@
-package io.c19.jmstest.rest;
+/*
+ * Copyright (c) 2018 - 2019, C19, all rights reserved.
+ *
+ * This software is licensed under under GPL-3.0-only or GPL-3.0-or-later, https://opensource.org/licenses/GPL-3.0
+ */
 
-import io.c19.jmstest.client.MessagingClient;
-import io.c19.jmstest.common.MessageStore;
+package io.c19.playground.jmstest.rest;
+
+import io.c19.playground.jmstest.client.MessagingClient;
+import io.c19.playground.jmstest.common.MessageStore;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -33,7 +39,7 @@ public class JmsRestService
     @Path( "message" )
     public Response getMessage( )
     {
-        String message = messageStore.removeLast();
+        String message = messageStore.pop().orElse( "EMPTY" );
         return Response.ok( message ).build();
     }
 

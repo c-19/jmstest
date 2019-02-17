@@ -1,6 +1,12 @@
-package io.c19.jmstest.server;
+/*
+ * Copyright (c) 2018 - 2019, C19, all rights reserved.
+ *
+ * This software is licensed under under GPL-3.0-only or GPL-3.0-or-later, https://opensource.org/licenses/GPL-3.0
+ */
 
-import io.c19.jmstest.common.MessageStore;
+package io.c19.playground.jmstest.server;
+
+import io.c19.playground.jmstest.common.MessageStore;
 
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
@@ -37,12 +43,12 @@ public class MessageService implements MessageListener
         {
             if (message instanceof TextMessage)
             {
-                this.store.add(((TextMessage) message).getText());
+                this.store.push(((TextMessage) message).getText());
             }
         }
         catch( JMSException e )
         {
-            this.store.add( e.getMessage() );
+            this.store.push( e.getMessage() );
         }
     }
 }
